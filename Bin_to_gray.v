@@ -1,9 +1,9 @@
 module Bin_to_gray (
-    input wire [3:0] Bin_ptr,
-    output reg [3:0] gray_ptr
+    input wire [4:0] Bin_ptr,
+    output reg [4:0] gray_ptr
 );
 
-reg [3:0] shft_Bin_ptr;
+reg [4:0] shft_Bin_ptr;
 
 always @(*) 
     begin

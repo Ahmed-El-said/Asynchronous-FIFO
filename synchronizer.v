@@ -1,27 +1,23 @@
 module synchronizer (
     input wire  Dst_clk,
     input wire  rst,
-    input wire  ptr_bit,
-    output wire sync_ptr_bit
+    input wire [4:0] ptr,
+    output reg [4:0] sync_ptr
 );
 
-reg  ff1;
-reg  ff2;
+reg [4:0] ff;
+
 
 always @(posedge Dst_clk or negedge rst) 
     begin
         if (!rst) 
             begin
-                ff1<=1'b0;
-                ff2<=1'b0;
+                {sync_ptr,ff}<=0;
             end
         else
             begin
-                ff1<=ptr_bit;
-                ff2<=ff1;
+                {sync_ptr,ff}<={ff,ptr};
             end           
     end
-
-assign sync_ptr_bit=ff2;
     
 endmodule

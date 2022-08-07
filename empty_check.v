@@ -1,6 +1,6 @@
 module empty_check (
-    input wire [3:0] w_ptr,
-    input wire [3:0] r_ptr,
+    input wire [4:0] w_ptr,
+    input wire [4:0] r_ptr,
     output wire      empty_flag
 );
 
